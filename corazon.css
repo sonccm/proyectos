@@ -1,0 +1,105 @@
+body {
+  display: flex; /* Utiliza Flexbox para alinear los elementos en el contenedor */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  margin: 0; /* Elimina el margen predeterminado del navegador */
+  padding: 0; /* Elimina el padding predeterminado del navegador */
+  height: 100vh; /* Establece la altura del body al 100% de la altura de la ventana */
+  background-image: url('https://img.freepik.com/vector-gratis/fondo-escritorio-flores-vector-lindo_53876-136877.jpg?w=900&t=st=1728627970~exp=1728628570~hmac=87a8b94b6787b3eec1034436ec84b98f8aabfb976b5f46193c2dc50913539011'); /* Establece una imagen de fondo */
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: center; /* Centra la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.page {
+  position: relative; /* Permite que los elementos hijos se posicionen relativos a este contenedor */
+  box-sizing: border-box; /* Incluye el padding y el border en el tamaño total del elemento */
+  max-width: 300px; /* Establece un ancho máximo para la carta */
+  font-family: serif; /* Establece la fuente serif para el texto */
+  font-size: 15px; /* Establece el tamaño de fuente */
+  border-radius: 10px; /* Redondea las esquinas de la carta */
+  background: #fff; /* Establece el color de fondo de la carta a blanco */
+  background-image: linear-gradient(#f5f5f0 1.1rem, #ccc 1.2rem); /* Aplica un degradado como fondo */
+  background-size: 100% 1.2rem; /* Define el tamaño del fondo del degradado */
+  line-height: 1.2rem; /* Establece la altura de línea */
+  padding: 1.4rem 0.5rem 0.3rem 4.5rem; /* Aplica padding dentro de la carta */
+}
+
+.page::before,
+.page::after {
+  position: absolute; /* Posiciona los pseudo-elementos de forma absoluta dentro de .page */
+  content: ""; /* Define el contenido como vacío */
+  bottom: 10px; /* Coloca los pseudo-elementos a 10px del fondo de la carta */
+  width: 40%; /* Establece el ancho de los pseudo-elementos */
+  height: 10px; /* Establece la altura de los pseudo-elementos */
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.7); /* Aplica una sombra a los pseudo-elementos */
+  z-index: -1; /* Coloca los pseudo-elementos detrás de .page */
+  transition: all 0.3s ease; /* Añade una transición suave a todas las propiedades */
+}
+
+.page::before {
+  left: 15px; /* Posiciona el pseudo-elemento ::before a 15px desde el lado izquierdo */
+  transform: skew(-5deg) rotate(-5deg); /* Aplica una transformación para inclinar y rotar el elemento */
+}
+
+.page::after {
+  right: 15px; /* Posiciona el pseudo-elemento ::after a 15px desde el lado derecho */
+  transform: skew(5deg) rotate(5deg); /* Aplica una transformación para inclinar y rotar el elemento */
+}
+
+.page:hover::before,
+.page:hover::after {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4); /* Cambia la sombra al pasar el mouse sobre la carta */
+}
+
+.margin {
+  position: absolute; /* Posiciona .margin de forma absoluta */
+  border-left: 1px solid #d88; /* Crea una línea vertical a la izquierda */
+  height: 100%; /* Establece la altura al 100% del contenedor */
+  left: 3.3rem; /* Posiciona .margin a la izquierda 3.3rem */
+  top: 0; /* Posiciona .margin desde la parte superior */
+}
+
+.page p {
+  margin: 0; /* Elimina el margen del párrafo */
+  text-indent: 1rem; /* Indenta el texto del párrafo 1rem */
+  padding-bottom: 1.2rem; /* Aplica padding en la parte inferior del párrafo */
+  color: black; /* Establece el color del texto a negro */
+  line-height: 20px; /* Establece la altura de línea a 20px */
+}
+
+audio {
+  display: none; /* Oculta el reproductor de audio */
+}
+
+img {
+  border: 2px solid rgb(0, 0, 0); /* agrega bordes en las imágenes */
+  border-radius: 10%; /* Redondea las esquinas de las imágenes */
+}
+
+.rotated {
+  width: 300px; /* Ajusta el ancho de la imagen rotada */
+  transform: rotate(100deg); /* Rota la imagen 100 grados */
+  transition: transform 0.5s; /* Añade una transición suave para la rotación */
+}
+
+/* Rotar al pasar el mouse */
+.rotated:hover {
+  transform: rotate(80deg); /* Rota la imagen a 80 grados al pasar el mouse */
+}
+
+img {
+  position: relative; /* Posiciona la imagen de forma relativa */
+  z-index: 2; /* Coloca la imagen delante de otros elementos con menor z-index */
+}
+
+.page {
+  position: relative; /* Asegura que la carta también tenga un z-index */
+  z-index: 1; /* Valor menor para que la carta esté detrás de la imagen */
+}
+
+.page::before,
+.page::after {
+  content: none; /* Elimina el contenido y los estilos de los pseudo-elementos */
+}
+
